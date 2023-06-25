@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'assets/css/content.css' %}">
+
+<div class="caption">
+    <div class="top">
+        {% include 'parts_main/search.html' %}
+    </div>
+    <div class="bottom">
+        {% include 'parts_main/right-content-bottom.html' %}
+    </div>
+
+    <script src="{% static 'assets/js/search.js' %}"></script>
+
+</div>
+

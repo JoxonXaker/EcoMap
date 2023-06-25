@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% include 'layouts/head.html' %}
+    <title>ecoMaps | {% block title %}{% endblock %}</title>
+</head>
+
+<body onload="LoaderFunction()">
+
+{% include 'loaders/pre-loader.html' %}
+{% include 'layouts/header.html' %}
+{% block content %}
+
+{% endblock %}
+{% include 'layouts/foot.html' %}
+
+</body>
+</html>

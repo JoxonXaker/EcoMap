@@ -1,0 +1,80 @@
+{% extends 'registration/main.html' %}
+
+{% block title %}SignUp{% endblock %}
+
+{% block content %}
+
+    <form method="post" action="{% url 'post_sign_up' %}" autocomplete="off">{% csrf_token %}
+        <div class="title">
+            <h2>Sign Up</h2>
+            <ion-icon id="reverse" name="reload-outline"></ion-icon>
+        </div>
+
+        <div class="inputbox" id="username">
+            <ion-icon name="person-outline"></ion-icon>
+            <input type="text" name="username" required maxlength="30" minlength="5" id="id_username">
+            <label for="id_username">Username</label>
+        </div>
+
+        <div class="inputbox" id="phone_number" hidden>
+            <ion-icon name="call-outline"></ion-icon>
+            <input type="text" name="phone_number" required maxlength="25" minlength="5" id="id_phone_number" disabled>
+            <label for="id_phone_number">Phone number</label>
+        </div>
+
+        <div class="inputbox" id="email" hidden>
+            <ion-icon name="mail-outline"></ion-icon>
+            <input type="email" name="email" required maxlength="30" minlength="5" id="id_email" disabled>
+            <label for="id_email">Email</label>
+        </div>
+
+        <div class="dual">
+            <div class="inputbox" style="width: 45%" id="password1">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input type="password" name="password1" autocomplete="new-password" minlength="5" required
+                       id="id_password1">
+                <label for="id_password1">Password</label>
+            </div>
+
+            <div class="inputbox" style="width: 53.5%" id="password2">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input type="password" name="password2" autocomplete="new-password" minlength="5" required
+                       id="id_password2" oninput="">
+                <label for="id_password2" id="password_helper">Confirm password</label>
+            </div>
+        </div>
+
+        <div class="forget">
+            <label for=""><input type="checkbox"> Remember Me
+                <a href="#"> Forget Password</a></label>
+        </div>
+
+        <button type="submit" id="signup">
+            <p id="btn_text">Sign up</p>
+            <img id="loader" hidden src="https://cdn.pixabay.com/animation/2022/07/29/03/42/03-42-05-37_512.gif"
+                 width="40px">
+        </button>
+
+        <div class="register">
+            <p>I have a account <a href="{% url 'login' %}">Login</a></p>
+        </div>
+    </form>
+    <script>
+        pass1 = document.getElementById('id_password1')
+        pass2 = document.getElementById('id_password2')
+        pass2.oninput = function (e) {
+            if (pass1.value !== e.target.value) {
+                document.getElementById('password_helper').style.color = '#ff3d3d'
+            } else {
+                document.getElementById('password_helper').style.color = '#00ff00'
+            }
+        }
+
+        document.getElementById('signup').addEventListener('click', function () {
+            let btn_text = document.getElementById('btn_text')
+            let loader = document.getElementById('loader')
+            btn_text.hidden = true
+            loader.hidden = false
+        })
+    </script>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'assets/css/image.css' %}">
+
+
+<div class="image-show row">
+
+    <div class="image-main col-10">
+
+        <div class="mySlides">
+            <img id="image-content-large1" alt="" src="{% static 'assets/images/slide/banner1.png' %}" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img id="image-content-large2" alt="" src="{% static 'assets/images/slide/banner2.png' %}" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img id="image-content-large3" alt="" src="{% static 'assets/images/slide/banner3.png' %}" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img id="image-content-large4" alt="" src="{% static 'assets/images/slide/banner4.png' %}" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img id="image-content-large5" alt="" src="{% static 'assets/images/slide/banner5.png' %}" style="width:100%">
+        </div>
+
+
+        <!-- Next and previous buttons -->
+        <div class="image-button">
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        </div>
+
+        <!-- Image text -->
+    </div>
+    <!-- Thumbnail images -->
+    <div class="menu-image col-2">
+        <div class="column">
+            <img class="demo cursor" id="image-content-small1" src="{% static 'assets/images/slide/banner1.png' %}"
+                 style="width:100%"
+                 onclick="currentSlide(1)" alt="The Woods">
+        </div>
+        <div class="column">
+            <img class="demo cursor" id="image-content-small2" src="{% static 'assets/images/slide/banner2.png' %}"
+                 style="width:100%"
+                 onclick="currentSlide(2)" alt="Cinque Terre">
+        </div>
+        <div class="column">
+            <img class="demo cursor" id="image-content-small3" src="{% static 'assets/images/slide/banner3.png' %}"
+                 style="width:100%"
+                 onclick="currentSlide(3)" alt="Mountains and fjords">
+        </div>
+        <div class="column">
+            <img class="demo cursor" id="image-content-small4" src="{% static 'assets/images/slide/banner4.png' %}"
+                 style="width:100%"
+                 onclick="currentSlide(4)" alt="Northern Lights">
+        </div>
+        <div class="column">
+            <img class="demo cursor" id="image-content-small5" src="{% static 'assets/images/slide/banner5.png' %}"
+                 style="width:100%"
+                 onclick="currentSlide(5)" alt="Nature and sunrise">
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'assets/js/image.js' %}"></script>

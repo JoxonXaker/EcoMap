@@ -1,0 +1,64 @@
+{% extends 'registration/main.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <form action="{% url 'post_login' %}" method="post" autocomplete="off">
+        {% csrf_token %}
+        <div class="title">
+            <h2>Login</h2>
+            <ion-icon id="reverse" name="reload-outline"></ion-icon>
+        </div>
+
+        <div class="inputbox" id="email" hidden>
+            <ion-icon name="mail-outline"></ion-icon>
+            <input name="email" type="email" disabled required maxlength="30" minlength="5">
+            <label for="">Email</label>
+        </div>
+
+        <div class="inputbox" id="phone_number" hidden>
+            <ion-icon name="call-outline"></ion-icon>
+            <input name="phone_number" disabled type="tel" required maxlength="25" minlength="5">
+            <label for="">Phone Number</label>
+        </div>
+
+        <div class="inputbox" id="username">
+            <ion-icon name="person-outline"></ion-icon>
+            <input name="username" type="text" required maxlength="30" minlength="5">
+            <label for="">Username</label>
+        </div>
+
+
+        <div class="inputbox">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input id="password" name="password" type="password" required maxlength="30" minlength="5">
+            <label for="">Password</label>
+        </div>
+
+        <div class="forget">
+            <label for=""><input type="checkbox"> Remember Me
+                <a href="#"> Forget Password</a></label>
+        </div>
+
+        <button type="submit" id="login">
+            <p id="btn_text">Log in</p>
+            <img id="loader" hidden src="https://cdn.pixabay.com/animation/2022/07/29/03/42/03-42-05-37_512.gif"
+                 width="40px">
+        </button>
+
+        <div class="register">
+            <p>Don`t have a account <a href="{% url 'signup' %}">Register</a></p>
+        </div>
+
+    </form>
+    <script>
+        document.getElementById('login').addEventListener('click', function () {
+
+            let btn_text = document.getElementById('btn_text')
+            let loader = document.getElementById('loader')
+            btn_text.hidden = true
+            loader.hidden = false
+        })
+
+    </script>
+{% endblock %}

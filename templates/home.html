@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="main-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    {% include 'parts_main/left-content.html' %}
+                </div>
+
+                <div class="col-lg-4 align-self-center">
+                    {% include 'parts_main/right-content.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
