@@ -70,11 +70,11 @@ def post_data(request):
             'properties': {
                 'id': tree.id,
                 'name': tree.name,
-                'type': 'Archa',
+                'type': tree.type,
                 'tall': tree.tall,
-                'status': 'yaxshi',
-                'irrigation': 'o`rtacha',
-                'create_date': tree.create_date,
+                'status': tree.status,
+                'irrigation': tree.irrigation,
+                'create_date': tree.create_date.strftime('%d.%m.%Y'),
                 'img': [img.photo.url for img in tree.TreeInfoPhotos.all()]
             },
             'geometry': {

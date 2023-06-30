@@ -88,6 +88,8 @@ organization.addEventListener('change', (even) => {
                 // make new markers
                 if (marker.type === 'tree') {
                     el.className = 'tree-marker-default';
+                    el.style.background = "url('/static/tree_icon/" + marker.properties.type + '-' + marker.properties.status + ".png')"
+                    el.style.backgroundSize = "23px 23px"
                 } else if (marker.type === 'organization') {
                     if (marker.geometry.type === 0) {
                         el.className = 'organization-marker-default';
@@ -148,14 +150,16 @@ organization.addEventListener('change', (even) => {
                     })
                     if (marker.type === 'tree') {
                         let info_bar_1 = document.getElementById('info_Bar_1')
+                        let status = {'0':'a`lo','1':'yaxshi','2':'qoniqarli','3':'o`rtacha','4':'qoniqarsiz','5':'yomon','6':'achinarli'}
+                        let type = {'0':'archa', '1':'manzarali', '2':'mevali'}
                         info_bar_1.querySelector('h6').innerText = 'Daraxt haqida'
                         info_bar_1.querySelector('p').innerHTML =
                             `Nomi: <b>${marker.properties.name}</b> <br>
-                             Turi: <b>${marker.properties.type}</b> <br>
+                             Turi: <b>${type[marker.properties.type]}</b> <br>
                              Bo'yi: <b>${marker.properties.tall}</b> m<br>
-                             Daraxt holati: <b>${marker.properties.status}</b><br>
-                             Suvli holati: <b>${marker.properties.irrigation}</b><br>
-                             Tekshiruv Vaqti:<br><b>${marker.properties.create_date}</b><br>`
+                             Daraxt holati: <b>${status[marker.properties.status]}</b><br>
+                             Suvli holati: <b>${status[marker.properties.irrigation]}</b><br>
+                             Tekshiruv vaqti:<b>${marker.properties.create_date}</b><br>`
                     } else if (marker.type === 'organization') {
                         let info_bar_1 = document.getElementById('info_Bar_1')
                         info_bar_1.querySelector('h6').innerText = 'Tashkilot haqida'
