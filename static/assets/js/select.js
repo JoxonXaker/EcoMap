@@ -54,10 +54,17 @@ district.addEventListener('change', (even) => {
         }
     })
 
+
 })
 
 
 organization.addEventListener('change', (even) => {
+    document.getElementById('js-mainloader').hidden = false
+
+    function cancellationLoader() {
+        document.getElementById('js-mainloader').hidden = true
+    }
+
     $.ajax({
         type: "GET",
         url: `data?organ=${even.target.value}`,
@@ -127,6 +134,12 @@ organization.addEventListener('change', (even) => {
 
                 // click to set slide Image
                 el.addEventListener('click', (obj) => {
+                    document.getElementById('js-mainloader').hidden = false
+
+                    function cancellation() {
+                        document.getElementById('js-mainloader').hidden = true
+                    }
+
                     let i = 1
                     marker.properties.img.forEach((image) => {
                         document.getElementById(`image-content-large${i}`).src = image
@@ -155,7 +168,7 @@ organization.addEventListener('change', (even) => {
                              Maydoni: <b>${marker.properties.area}</b> m<sup>2</sup><br>
                              Daraxtlar soni: <b>${marker.properties.count}</b> ta <br>`
                     }
-
+                    setTimeout(cancellation, 1000)
                 })
             });
         },
@@ -163,6 +176,9 @@ organization.addEventListener('change', (even) => {
             alert('Ulanish nuqtasi bilan muammo bor:(')
         }
     })
+
+    setTimeout(cancellationLoader, 1000)
+
 
 })
 
