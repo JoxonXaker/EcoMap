@@ -1,5 +1,6 @@
-
+import django_heroku
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -106,7 +107,9 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = str(BASE_DIR.joinpath('static')),
+STATICFILES_DIRS = [BASE_DIR / 'static/']
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_DIRS = str(BASE_DIR.joinpath('static')),
 # STATIC_ROOT = str(BASE_DIR.joinpath('static'))
 
 
@@ -119,3 +122,5 @@ AUTH_USER_MODEL = 'users.UserModel'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
+
+django_heroku.settings(locals())
