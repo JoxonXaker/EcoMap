@@ -5,7 +5,7 @@
     <title>ecoMaps | {% block title %}{% endblock %}</title>
 </head>
 
-<body onload="LoaderFunction()">
+<body>
 
 {% include 'loaders/pre-loader.html' %}
 {% include 'layouts/header.html' %}
@@ -14,5 +14,16 @@
 {% endblock %}
 {% include 'layouts/foot.html' %}
 
+<script>
+
+    function showPage() {
+        document.querySelector("#js-preloader").style.display = "none";
+        document.querySelector("body").style.display = "block";
+    }
+
+    setTimeout(showPage, 2000)
+
+
+</script>
 </body>
 </html>
